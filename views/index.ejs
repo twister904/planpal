@@ -1,0 +1,26 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="maincontent">
+        <h3>plan better with Planpal</h3>
+        <form action="/submit" method="post" class="todoform">
+            <input name="name" type="text" class="feedback-input" placeholder="add a task" />
+            <input type="submit" value="lets do it" class="submitform">
+        </form>
+        <ul class="tasklist">
+            
+            <% if (locals.list)  {%>
+                <%  for(let i=0;i<list.length;i++) { %>
+                    
+                     <li class="tasklist">(<%= i+1 %>)<%= list[i] %>
+                        <input type="checkbox" class="checkbox">
+                         </li>
+                    <% } } %>
+
+        </ul>
+
+   
+    
+        <h4>total task= <% if(locals.taskdone) { %> <%= taskdone%>  <%} %></h4>
+        <p> Date: <%= new Date().getDate() %>/<%= new Date().getMonth()+1 %>/<%= new Date().getFullYear() %></p>
+    </div>
+<%- include("partials/footer.ejs") %>
